@@ -33,7 +33,26 @@
 
       <p class="description_board"><%= board.description %></p>
 
-    </div>
-  <% end %>
+      <div class="container__preview">
+
+        <% board.links.each do |link| %>
+        <div class="item__preview">
+          <%= link_to link.url, target: "_blank", class: "link" do %>
+
+            <div class="image__preview">
+              <% if link.image.try(:url) %>
+                <%= image_tag link.image.url%>
+              <% end %>
+            </div>
+            <h2 class="title__preview"><%= link.title %></h2>
+            <div class="url__preview"><%= link.url %></div>
+
+          <% end %>
+
+              </div>
+
+          <% end %>
+        <% end %>
+      </div>
 
 </main>
